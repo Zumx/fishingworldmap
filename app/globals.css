@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+/* ============================================================
+   THEME TOKENS — the only block that changes between the three
+   world-map sites (climbing / sailing / fishing). Everything below
+   is generic and references these custom properties.
+   FISHING: forest green on reed, warm tackle-brown accent.
+   ============================================================ */
+:root {
+  --c-primary:      #244a2f;  /* forest green                      */
+  --c-primary-deep: #16301e;
+  --c-accent:       #a9743f;  /* tackle brown / amber              */
+  --c-accent-soft:  #c79358;
+  --c-bg:           #f1f3ec;  /* pale reed                         */
+  --c-bg-light:     #f9faf5;
+  --c-ink:          #1d2a1f;
+  --c-warm:         #4a4636;
+  --c-mute:         #75786a;
+  --c-line:         #d8ddcb;
+  --c-panel:        rgba(249,250,245,0.98);
+
+  --font-serif: var(--font-display, 'Cormorant Garamond'), 'Georgia', serif;
+  --font-sans:  var(--font-body, 'Inter'), system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { color: var(--c-ink); background: var(--c-bg); }
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--c-ink);
+  background-color: var(--c-bg);
+  background-image:
+    radial-gradient(rgba(36,74,47,0.04) 1px, transparent 1px),
+    radial-gradient(rgba(169,116,63,0.05) 1px, transparent 1px),
+    linear-gradient(180deg, var(--c-bg-light) 0%, var(--c-bg) 32%);
+  background-size: 24px 24px, 38px 38px, 100% 100%;
+  background-position: 0 0, 12px 19px, 0 0;
+}
+
+h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.005em; line-height: 1.15; }
+a { color: inherit; }
+
+.wm-card {
+  background: white;
+  border: 1px solid var(--c-line);
+  border-radius: 10px;
+  text-decoration: none;
+  display: block;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(36,74,47,0.05), 0 1px 2px rgba(36,74,47,0.07);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.wm-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--c-accent);
+  box-shadow: 0 12px 28px -8px rgba(36,74,47,0.22), 0 4px 8px -3px rgba(36,74,47,0.12);
+}
+
+.wm-section-title {
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: var(--c-primary);
+  border-bottom: 2px solid var(--c-accent);
+  padding-bottom: .55rem;
+  margin-bottom: 1.6rem;
+  letter-spacing: -0.01em;
+}
+
+@keyframes wm-fade-up {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.wm-fade-up { animation: wm-fade-up .5s ease-out both; }
+
+@media (max-width: 720px) {
+  .wm-stack-mobile { grid-template-columns: 1fr !important; }
+  .wm-hide-mobile { display: none !important; }
+}
+
+/* --- Leaflet polish --- */
+.leaflet-container { background: #dde2d0; }
+.leaflet-control-attribution {
+  background: rgba(22,48,30,0.7) !important;
+  color: #a9b3a0 !important; font-size: 10px !important;
+}
+.leaflet-control-attribution a { color: #c6cdb9 !important; }
+.leaflet-attribution-flag { display: none !important; }
+.leaflet-control-zoom a {
+  background: rgba(22,48,30,0.85) !important; color: var(--c-accent) !important;
+  border: 1px solid rgba(169,116,63,0.4) !important;
+}
+.leaflet-control-zoom a:hover { background: rgba(36,74,47,0.95) !important; color: #fff !important; }
+.wm-tooltip {
+  background: rgba(22,48,30,0.92) !important;
+  border: 1px solid rgba(169,116,63,0.4) !important;
+  color: #f1f0e2 !important;
+  font-family: var(--font-sans) !important;
+  font-size: 13px !important; border-radius: 6px !important;
+  padding: 4px 10px !important; box-shadow: none !important;
+}
+.wm-tooltip::before { display: none !important; }
+
+.wm-search-pulse { position: relative; width: 40px; height: 40px; pointer-events: none; }
+.wm-search-pulse span {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 2px solid var(--c-accent); opacity: 0; animation: wm-search-pulse 1.6s ease-out infinite;
+}
+.wm-search-pulse span:nth-child(2) { animation-delay: .8s; }
+@keyframes wm-search-pulse {
+  0%   { transform: scale(.3); opacity: 0.95; }
+  80%  { opacity: 0.18; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+@media (max-width: 640px) {
+  .wm-info-panel {
+    left: 0 !important; right: 0 !important; bottom: 0 !important;
+    width: auto !important; max-height: 60vh; overflow-y: auto;
+    border-radius: 14px 14px 0 0 !important;
+  }
+}
