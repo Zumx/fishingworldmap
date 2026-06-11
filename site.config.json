@@ -23,8 +23,8 @@
   "initialCap": 8000,
   "mappedNoun": "fishing spots",
   "unnamedLabel": "Unnamed fishing spot",
-  "affiliateUrl": "https://www.getyourguide.com/s/?q={q}%20fishing",
-  "ctaType": "tour",
+  "affiliateUrl": "https://fishingbooker.com/",
+  "ctaType": "gear",
   "metaFields": [],
   "aboutText": null,
   "locales": [
