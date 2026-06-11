@@ -1,5 +1,10 @@
-node_modules
-.next
+/node_modules
+/.next
+/out
+.DS_Store
+*.log
 .vercel
-*.tsbuildinfo
-.env*
+.env*.local
+.env
+fetch.log
+scripts/.cache

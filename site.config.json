@@ -1,0 +1,50 @@
+{
+  "name": "Fishing World Map",
+  "slug": "fishingworldmap",
+  "emoji": "\ud83c\udfa3",
+  "domain": "fishingworldmap.com",
+  "contactEmail": "hello@fishingworldmap.com",
+  "colors": {
+    "primary": "#0277bd",
+    "accent": "#81d4fa"
+  },
+  "osm": {
+    "key": "leisure",
+    "value": "fishing"
+  },
+  "osmFilters": [
+    {
+      "key": "leisure",
+      "value": "fishing"
+    }
+  ],
+  "includeRelations": false,
+  "dedupeMeters": 0,
+  "initialCap": 8000,
+  "mappedNoun": "fishing spots",
+  "unnamedLabel": "Unnamed fishing spot",
+  "affiliateUrl": "https://www.getyourguide.com/s/?q={q}%20fishing",
+  "ctaType": "tour",
+  "metaFields": [],
+  "aboutText": null,
+  "locales": [
+    "en",
+    "de",
+    "fr",
+    "it",
+    "sv"
+  ],
+  "defaultLocale": "en",
+  "namedOnly": false,
+  "includeFilter": null,
+  "dataSource": {
+    "type": "overpass"
+  },
+  "googlePlaces": {
+    "enabled": false,
+    "cap": 800
+  },
+  "indexNow": {
+    "key": "94c37e2371813b0dee667fff2ed58562"
+  }
+}

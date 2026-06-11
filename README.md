@@ -1,39 +1,35 @@
-# Fishing World Map
+# Worldmap site
 
-Every fishing spot on Earth on one interactive map. Next.js 16 + Leaflet,
-data served as a single static GeoJSON file (no database).
+An interactive world map of every place tagged a certain way in
+[OpenStreetMap](https://www.openstreetmap.org), generated from the master
+template at `C:\dev\_template`.
 
-## Stack
+- **Next.js 16** (App Router) + **Leaflet** with marker clustering
+- **next-intl** i18n (English default; add locales in `site.config.json`)
+- MDX blog, SEO country pages, lazy LocationCard (Wikipedia / Wikimedia /
+  Mapillary / Google rating)
+- Static `public/data/points.geojson` — no database
+- Monthly auto-refresh via GitHub Actions
 
-- Next.js 16 (App Router) + React 19
-- Leaflet + Leaflet.markercluster (client-only map)
-- Static `public/data/points.geojson` — read server-side for home-page
-  counts, fetched client-side by the map.
+## Configuration
 
-## Data
-
-`points.geojson` is built from OpenStreetMap (`leisure=fishing`) via the
-Overpass API and tagged with country borders from Natural Earth:
-
-```bash
-npm run data
-```
-
-The world is fetched in bounding-box tiles to stay under Overpass limits
-and de-duplicated by OSM type+id. Natural Earth borders are cached in
-`../_worldmap_data/` and shared across the sibling world-map sites.
+Everything site-specific lives in **`site.config.json`**. Nothing else in the
+template needs editing between sites.
 
 ## Develop
 
 ```bash
 npm install
+cp .env.example .env        # optional API keys
+npm run fetch-data          # builds public/data/points.geojson
 npm run dev
 ```
 
-## Theme
+## Environment
 
-All per-site variation lives in `lib/site.ts` (copy, marker colours) and
-the token block at the top of `app/globals.css`. Everything else is
-generic and shared with the sibling sites (climbing / sailing world maps).
+| Variable                     | Used by         | Required |
+| ---------------------------- | --------------- | -------- |
+| `GOOGLE_PLACES_API_KEY`      | fetch-data.mjs  | optional |
+| `NEXT_PUBLIC_MAPILLARY_TOKEN`| LocationCard    | optional |
 
-Data © OpenStreetMap contributors.
+Data © OpenStreetMap contributors (ODbL).

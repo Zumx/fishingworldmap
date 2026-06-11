@@ -1,32 +1,25 @@
 {
   "name": "fishingworldmap",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
+    "fetch-data": "node scripts/fetch-data.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/build-index.mjs",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint",
-    "data": "node scripts/prepare-data.mjs"
+    "start": "next start"
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "leaflet": "^1.9.4",
     "leaflet.markercluster": "^1.5.3",
-    "next": "16.2.3",
-    "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "next": "^16.2.6",
+    "next-intl": "^4.3.4",
+    "next-mdx-remote": "^6.0.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/leaflet": "^1.9.21",
-    "@types/leaflet.markercluster": "^1.5.6",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.2.3",
-    "tailwindcss": "^4",
-    "typescript": "^5",
-    "which-polygon": "^2.2.1"
+    "@turf/boolean-point-in-polygon": "^7.2.0"
   }
 }
