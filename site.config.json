@@ -1,8 +1,8 @@
 {
   "name": "Fishing World Map",
   "slug": "fishingworldmap",
-  "emoji": "\ud83c\udfa3",
-  "domain": "fishingworldmap.com",
+  "emoji": "🎣",
+  "domain": "fishingworldmap.vercel.app",
   "contactEmail": "hello@fishingworldmap.com",
   "colors": {
     "primary": "#0277bd",

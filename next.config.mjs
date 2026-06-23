@@ -22,6 +22,10 @@ const nextConfig = {
     ],
   },
   async redirects() {
+    // When the canonical domain is itself a *.vercel.app URL there is no
+    // external domain to redirect to — applying the rule would create an
+    // infinite 308 self-redirect loop. Skip it entirely in that case.
+    if (site.domain.endsWith(".vercel.app")) return [];
     return [
       // Canonical-host redirect. The site is also reachable at its
       // *.vercel.app alias, which Google indexed as a duplicate host and
