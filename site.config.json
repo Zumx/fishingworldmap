@@ -4,6 +4,7 @@
   "emoji": "🎣",
   "domain": "fishingworldmap.vercel.app",
   "contactEmail": "hello@fishingworldmap.com",
+  "ga4Id": null,
   "colors": {
     "primary": "#0277bd",
     "accent": "#81d4fa"
