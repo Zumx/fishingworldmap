@@ -27,7 +27,10 @@
   "affiliateUrl": "https://fishingbooker.com/",
   "ctaType": "gear",
   "metaFields": [],
-  "aboutText": null,
+  "aboutText": [
+    "Fishing World Map marks fishing spots around the world — riverbanks and lake shores, piers, sea marks and managed fisheries — so anglers can see where there's water worth a cast.",
+    "Each spot comes from OpenStreetMap's `leisure=fishing` tag, added by anglers and local clubs. Licences, seasons and rules differ everywhere, so always check the local regulations before you fish a new spot."
+  ],
   "locales": [
     "en",
     "de",
